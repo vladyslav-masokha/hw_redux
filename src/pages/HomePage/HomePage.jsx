@@ -20,7 +20,7 @@ function HomePage() {
             <button type='button' className='usrDel'>
                Delete all users
             </button>
-            <Link to='/hw_redux/login/'></Link>
+            <Link to='/hw_redux/login/'>Login</Link>
           </div>
         </div>
       </div>
