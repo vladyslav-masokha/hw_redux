@@ -16,9 +16,9 @@ function App() {
     <div id='page' className={theme}>
       <ThemeSwitcher />
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/users' element={<UsersPage />} />
-        <Route path='/login' element={<SignInPage />} />
+        <Route path='/hw_redux/' element={<HomePage />} />
+        <Route path='/hw_redux/users' element={<UsersPage />} />
+        <Route path='/hw_redux/login' element={<SignInPage />} />
       </Routes>
     </div>
   );
