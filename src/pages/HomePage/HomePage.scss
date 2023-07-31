@@ -1,0 +1,101 @@
+#page {
+  &.dark {
+    .main {
+      padding: 80px 0;
+      color: var(--light);
+            
+      .mainBody {
+        display: grid;
+        gap: 30px;
+        
+        .title {
+            font-weight: 500;
+            font-size: 28px;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            max-width: 170px;
+        }
+        
+        .usrShow,
+        .usrDel {
+            padding: 5px 15px 5px 0;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+                
+        .usrShow {
+          color: var(--blue);
+        }
+
+        .usrDel {
+           color: var(--red);
+           margin: 5px 0 0;
+         }
+       }
+     }
+   }
+
+  &.light {
+      .main {
+          padding: 80px 0;
+          color: var(--dark);
+
+          .mainBody {
+              display: grid;
+              gap: 30px;
+              
+              .title {
+                  font-size: 28px;
+                  font-weight: 500;
+              }
+
+              .buttons {
+                  display: flex;
+                  flex-direction: column;
+                  max-width: 170px;
+              }
+
+        .usrShow,
+        .usrDel {
+                  padding: 5px 15px 5px 0;
+                  text-transform: uppercase;
+                  font-weight: 700;
+              }
+
+        .usrShow {
+                  color: var(--blue);
+              }
+
+        .usrDel {
+                  color: var(--red);
+                  margin: 5px 0 0;
+              }
+          }
+      }
+  }
+
+    @media screen and (min-width: 768px) {
+        &.dark {
+            .main {
+                .mainBody {
+                    .title {
+                        font-size: 36px;
+                    }
+                }
+            }
+        }
+    
+        &.light {
+                .main {
+                    .mainBody {
+                        .title {
+                            font-size: 36px;
+                        }
+                    }
+                }
+            }
+    }
+}

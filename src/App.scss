@@ -1,0 +1,30 @@
+:root {
+  --dark: #000;
+  --light: #fff;
+  
+  --yel: #fffb00;
+  --blue: #584fff;
+  --red: #f00;
+};
+
+#page {
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  &.dark {
+    background: var(--dark);
+  };
+
+  &.light {
+    background: var(--light);
+  };
+};
+
+.wrapper {
+  width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}

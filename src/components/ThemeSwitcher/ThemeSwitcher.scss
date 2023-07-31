@@ -1,0 +1,40 @@
+#page {
+    height: 500px;
+    position: relative;
+    
+    .changeThemeBtn {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        
+        text-align: center;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: color .5s ease-in-out;
+        padding: 10px 15px;
+        border-radius: 10px;
+    }
+    
+    &.dark {
+        .changeThemeBtn {
+            color: var(--light);
+            box-shadow: 0 0 5px 0 var(--light);
+            
+            &:hover {
+                color: var(--yel);
+            }
+        }
+    }
+
+    &.light {
+        .changeThemeBtn {
+            color: var(--dark);
+            box-shadow: 0 0 5px 0 var(--dark);
+            
+            &:hover {
+                color: var(--blue);
+            }
+        }
+    }
+}
