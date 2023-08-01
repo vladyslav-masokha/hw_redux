@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage/HomePage';
 import {Route, Routes} from 'react-router-dom';
 import UsersPage from './pages/UsersPage/UsersPage';
 import SignInPage from './pages/SignInPage/SignInPage';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
 
 /**
  * @return {string} App.
@@ -19,6 +20,7 @@ function App() {
         <Route path='/hw_redux/' element={<HomePage />} />
         <Route path='/hw_redux/users/' element={<UsersPage />} />
         <Route path='/hw_redux/login/' element={<SignInPage />} />
+        <Route path='/hw_redux/register/' element={<SignUpPage />} />
       </Routes>
     </div>
   );

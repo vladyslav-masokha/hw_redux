@@ -21,6 +21,7 @@ function HomePage() {
                Delete all users
             </button>
             <Link to='/hw_redux/login/'>Login</Link>
+            <Link to='/hw_redux/register/'>Register</Link>
           </div>
         </div>
       </div>
