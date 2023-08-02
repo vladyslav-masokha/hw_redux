@@ -11,7 +11,7 @@ function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    location.pathname === '/hw_redux/' ?
+    location.pathname === '/hw_redux/' || location.pathname === '/hw_redux' ?
   navigate('/hw_redux/login/') :
   navigate('/hw_redux/error/');
   }, [[location.pathname, navigate]]);

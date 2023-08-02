@@ -22,7 +22,10 @@ function SignUpPage() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
+      firstName: data.get('firstName').toLowerCase(),
+      lastName: data.get('lastName').toLowerCase(),
       email: data.get('email'),
+      secureCode: data.get('secureCode'),
       password: data.get('password'),
     });
   };
