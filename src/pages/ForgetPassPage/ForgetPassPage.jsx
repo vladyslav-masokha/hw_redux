@@ -1,7 +1,11 @@
 import React from 'react';
 
 /**
- * @return {string} ForgetPassPage.
+ * ForgetPassPage component.
+ *
+ * This component represents the Forget Password page.
+ *
+ * @return {JSX.Element} The ForgetPassPage component.
  */
 function ForgetPassPage() {
   return (
