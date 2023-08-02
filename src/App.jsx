@@ -7,6 +7,7 @@ import {Route, Routes} from 'react-router-dom';
 import UsersPage from './pages/UsersPage/UsersPage';
 import SignInPage from './pages/SignInPage/SignInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
+import ForgetPassPage from './pages/ForgetPassPage/ForgetPassPage';
 
 /**
  * @return {string} App.
@@ -21,6 +22,7 @@ function App() {
         <Route path='/hw_redux/users/' element={<UsersPage />} />
         <Route path='/hw_redux/login/' element={<SignInPage />} />
         <Route path='/hw_redux/register/' element={<SignUpPage />} />
+        <Route path='/hw_redux/recovery/' element={<ForgetPassPage />} />
       </Routes>
     </div>
   );

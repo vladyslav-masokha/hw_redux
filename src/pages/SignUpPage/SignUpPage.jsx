@@ -10,7 +10,6 @@ import {
   Typography,
   Button, createTheme,
 } from '@mui/material';
-import './SignUpPage.scss';
 import {Link} from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Copyright from '../../components/Copyright/Copyright';

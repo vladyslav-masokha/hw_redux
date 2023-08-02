@@ -16,10 +16,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Copyright from '../../components/Copyright/Copyright';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import './SignInPage.scss';
 
 /**
- * @return {string} SignIn.
+ * @return {string} SignInPage.
  */
 function SignInPage() {
   const handleSubmit = (event) => {
@@ -90,7 +89,7 @@ function SignInPage() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href='#' variant='body2'>Forgot password?</Link>
+                <Link to='/hw_redux/recovery/'>Forgot password?</Link>
               </Grid>
               <Grid item>
                 {'Don\'t have an account? '}
