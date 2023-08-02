@@ -32,43 +32,43 @@
     background: var(--dark);
 
     .MuiContainer-root {
-      background: var(--dark) !important;
-      color: var(--light) !important;
+      background: var(--dark);
+      color: var(--light);
 
-      .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-        border-color: var(--silv) !important;
+      fieldset {
+        border-color: var(--silv);
       }
 
       .MuiFormLabel-root {
-        color: var(--silv-light) !important;
+        color: var(--silv-light);
       }
 
       .Mui-focused {
-        .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-          border-color: var(--blue-form) !important;
+        fieldset {
+          border-color: var(--blue-form);
         }
 
         &.MuiFormLabel-root {
-            color: var(--blue-form) !important;
+            color: var(--blue-form);
         }
       }
 
-      .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-          color: var(--light) !important;
+      input {
+          color: var(--light);
       }
 
       svg {
-          fill: var(--silv) !important;
+          fill: var(--silv);
       }
 
       .Mui-checked {
           svg {
-            fill: var(--blue-form) !important;
+            fill: var(--blue-form);
           }
       }
 
       p {
-        color: var(--silv-light) !important;
+        color: var(--silv-light);
       }
     }
   };
