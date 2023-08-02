@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './index.css';
 import './styles/reset.css';
 import './styles/normalize.css';
-import App from './App';
+
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
+
+import App from './App';
+import './firebase';
 import store from './redux/store';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+
+ReactDOM.createRoot(document.querySelector('#root')).render(
     <React.StrictMode>
       <BrowserRouter>
         <Provider store={store}>

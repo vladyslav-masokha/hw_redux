@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Avatar,
   Box,
@@ -8,29 +8,50 @@ import {
   TextField,
   ThemeProvider,
   Typography,
-  Button, createTheme,
+  Button,
+  createTheme,
+  Alert,
+  AlertTitle,
 } from '@mui/material';
 import {Link} from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Copyright from '../../components/Copyright/Copyright';
+import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
+import {useDispatch} from 'react-redux';
+import {createUser} from '../../redux/slices/userSlice';
 
 /**
  * @return {string} SignUpPage.
  */
 function SignUpPage() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      firstName: data.get('firstName').toLowerCase(),
-      lastName: data.get('lastName').toLowerCase(),
-      email: data.get('email'),
-      secureCode: data.get('secureCode'),
-      password: data.get('password'),
-    });
+  // variables
+  const defaultTheme = createTheme();
+  const dispatch = useDispatch();
+
+  // states
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [errMessage, setErrMessage] = useState('');
+
+  // functions
+  const handleSubmit = (event) => event.preventDefault();
+
+  const handleRegister = (email, pass) => {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, pass)
+        .then(({user}) => {
+          console.log(user);
+          // Signed up
+          dispatch(createUser({
+            id: user.uid,
+            email: user.email,
+          }));
+        })
+        .catch((error) => {
+          setErrMessage(error.code);
+        });
   };
 
-  const defaultTheme = createTheme();
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -51,6 +72,14 @@ function SignUpPage() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 3}}>
             <Grid container spacing={2}>
+              <Grid item xs={12}>
+                {errMessage !== '' ? (
+                  <Alert severity="error">
+                    <AlertTitle>Info</AlertTitle>
+                    {errMessage} — <strong>check it out!</strong>
+                  </Alert>
+                ) : null}
+              </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
@@ -80,6 +109,7 @@ function SignUpPage() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={(event) => setEmail(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -103,6 +133,7 @@ function SignUpPage() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={(event) => setPass(event.target.value)}
                 />
               </Grid>
             </Grid>
@@ -111,13 +142,14 @@ function SignUpPage() {
               fullWidth
               variant="contained"
               sx={{mt: 3, mb: 2}}
+              onClick={() => handleRegister(email, pass)}
             >
                           Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 {'Already have an account? '}
-                <Link to='/hw_redux/login'>Sign in</Link>
+                <Link to='/hw_redux/login' className='othBtn'>Sign in</Link>
               </Grid>
             </Grid>
           </Box>

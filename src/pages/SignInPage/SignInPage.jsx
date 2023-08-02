@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from 'react';
 import {
   Avatar,
   Box,
@@ -11,26 +12,44 @@ import {
   ThemeProvider,
   Typography,
   Button,
+  Alert,
+  AlertTitle,
 } from '@mui/material';
-import React from 'react';
 import {Link} from 'react-router-dom';
-import Copyright from '../../components/Copyright/Copyright';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+import Copyright from '../../components/Copyright/Copyright';
 
 /**
  * @return {string} SignInPage.
  */
 function SignInPage() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-
   const defaultTheme = createTheme();
+
+  // states
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [errMessage, setErrMessage] = useState('');
+
+  useEffect(() => {
+    console.log(email, pass);
+  }, [[email, pass]]);
+
+  // functions
+  const handleSubmit = (event) => event.preventDefault();
+
+  const handleLogin = (email, pass) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, pass)
+        .then(({user}) => {
+          // Signed in
+          console.log(user);
+          setErrMessage('');
+        })
+        .catch((error) => {
+          setErrMessage(error.code);
+        });
+  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -56,6 +75,14 @@ function SignInPage() {
             noValidate
             sx={{mt: 1}}
           >
+            <Grid item xs={12}>
+              {errMessage !== '' ? (
+                <Alert severity="error">
+                  <AlertTitle>Info</AlertTitle>
+                  {errMessage} — <strong>check it out!</strong>
+                </Alert>
+                ) : null}
+            </Grid>
             <TextField
               margin='normal'
               required
@@ -65,6 +92,7 @@ function SignInPage() {
               name='email'
               autoComplete='email'
               autoFocus
+              onChange={(event) => setEmail(event.target.value)}
             />
             <TextField
               margin='normal'
@@ -75,6 +103,7 @@ function SignInPage() {
               type='password'
               id='password'
               autoComplete='current-password'
+              onChange={(event) => setPass(event.target.value)}
             />
             <FormControlLabel
               control={
@@ -87,6 +116,7 @@ function SignInPage() {
               fullWidth
               variant='contained'
               sx={{mt: 3, mb: 2}}
+              onClick={() => handleLogin(email, pass)}
             >Sign In
             </Button>
             <Grid container>
@@ -95,7 +125,7 @@ function SignInPage() {
               </Grid>
               <Grid item>
                 {'Don\'t have an account? '}
-                <Link to='/hw_redux/register/'>Sign Up</Link>
+                <Link to='/hw_redux/register/' className='othBtn'>Sign Up</Link>
               </Grid>
             </Grid>
           </Box>

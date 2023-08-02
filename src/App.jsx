@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.scss';
 import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher';
-import {useSelector} from 'react-redux';
 import HomePage from './pages/HomePage/HomePage';
 import {Route, Routes} from 'react-router-dom';
 import UsersPage from './pages/UsersPage/UsersPage';
 import SignInPage from './pages/SignInPage/SignInPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import ForgetPassPage from './pages/ForgetPassPage/ForgetPassPage';
+import {useSelector} from 'react-redux';
 
 /**
  * @return {string} App.
