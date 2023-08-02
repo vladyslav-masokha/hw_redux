@@ -26,53 +26,49 @@
     .othBtn {
       color: var(--blue);
     }
-
-    .infoForm {
-        display:none;
-    }
   }
   
   &.dark {
     background: var(--dark);
 
     .MuiContainer-root {
-      background: var(--dark);
-      color: var(--light);
+      background: var(--dark) !important;
+      color: var(--light) !important;
 
       .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-        border-color: var(--silv);
+        border-color: var(--silv) !important;
       }
 
       .MuiFormLabel-root {
-        color: var(--silv-light);
+        color: var(--silv-light) !important;
       }
 
       .Mui-focused {
         .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-          border-color: var(--blue-form);
+          border-color: var(--blue-form) !important;
         }
 
         &.MuiFormLabel-root {
-            color: var(--blue-form);
+            color: var(--blue-form) !important;
         }
       }
 
       .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-          color: var(--light);
+          color: var(--light) !important;
       }
 
       svg {
-          fill: var(--silv);
+          fill: var(--silv) !important;
       }
 
       .Mui-checked {
           svg {
-            fill: var(--blue-form);
+            fill: var(--blue-form) !important;
           }
       }
 
       p {
-        color: var(--silv-light);
+        color: var(--silv-light) !important;
       }
     }
   };
